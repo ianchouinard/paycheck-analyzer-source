@@ -1,0 +1,29 @@
+.bill-info {
+    // display: flex;
+
+    .field, .actions {
+        display: inline-block;
+        vertical-align: top;
+
+        .err {
+            color: #cf0e0e;
+            transform: translateY(-14px);
+            font-size: 14px;
+        }
+    }
+
+    .actions {
+        transform: translateY(-10px);
+    }
+
+    &.edit {
+        .field {
+            width: 25%;
+        }
+        .actions {
+            float: right;
+            margin: 15px 20px 0 0;
+            transform: translateY(-5px);
+        }
+    }
+}

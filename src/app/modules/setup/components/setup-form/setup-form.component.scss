@@ -1,0 +1,12 @@
+.field {
+    display: block;
+
+    p {
+        font-size: .775em;
+        color: rgba(0,0,0,.54);
+    }
+}
+
+.field + .field {
+    margin-bottom: 40px;
+}

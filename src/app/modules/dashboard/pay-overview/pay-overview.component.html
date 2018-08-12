@@ -1,0 +1,7 @@
+<div class="pay-overview">
+  <section class="paycheck-grid">
+    <div class="grid-item" *ngFor="let month of payMonths">
+      <pc-month-display [props]="month"></pc-month-display>
+    </div>
+  </section>
+</div>

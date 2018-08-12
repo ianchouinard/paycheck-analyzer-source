@@ -1,0 +1,31 @@
+<section class="bill-info" [ngClass]="{'edit': type == 'edit'}">
+  <div class="field">
+    <mat-form-field>
+      <input matInput placeholder="Bill Name" type="string" [(ngModel)]="bill.name">
+    </mat-form-field>
+    <div class="err" *ngIf="nameError">Name is required</div>
+  </div>
+
+  <div class="field">
+    <mat-form-field>
+      <input matInput placeholder="Cost" type="number" [(ngModel)]="bill.cost">
+    </mat-form-field>
+    <div class="err" *ngIf="costError">Cost must be a number</div>
+  </div>
+
+  <div class="field">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Bill date" disabled [(ngModel)]="bill.due">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <div class="err" *ngIf="dateError">Date must be valid</div>
+  </div>
+
+  <div class="actions" *ngIf="type == 'add'">
+    <button mat-flat-button color="primary" (click)="addNewBill()">Add</button>
+  </div>
+  <div class="actions" *ngIf="type == 'edit'">
+    <button mat-mini-fab color="primary" (click)="removeBill()">x</button>
+  </div>
+</section>

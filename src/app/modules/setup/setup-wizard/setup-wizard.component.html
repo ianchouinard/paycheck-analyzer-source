@@ -1,0 +1,38 @@
+<mat-card class="setup-wizard">
+  <mat-card-header>
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-subtitle>Please enter some basic info to get started. This info is only stored on your computer.</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <div class="form">
+      
+    <section class="form-col">
+      <h3>Basic Info</h3>
+      <pc-setup-form [model]="settings"></pc-setup-form>
+      <div class="actions">
+          <button mat-raised-button color="accent" (click)="submitForm()">Submit</button>
+      </div>
+    </section>
+
+    <section class="form-col">
+      <h3>Monthly Bills</h3>
+      <p>Add a re-occuring bill</p>
+      <pc-bill-info [type]="'add'" (billUpdate)="newBillEvent($event)"></pc-bill-info>
+      <mat-divider></mat-divider>
+      <div class="bill-listings">
+          <div *ngFor="let bill of bills; let i = index">
+              <pc-bill-info 
+                [bill]="bill" 
+                [type]="'edit'" 
+                [index]="i"
+                (billRemove)="removeBillEvent($event)"></pc-bill-info>
+          </div>
+      </div>
+    </section>
+
+    
+  </div>
+
+</mat-card>

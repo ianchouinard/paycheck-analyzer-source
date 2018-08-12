@@ -1,0 +1,14 @@
+
+<div class="month-display">
+  <div class="month-header">
+    <h3>{{ props.month | month }}</h3>
+    <h4>Gross Earnings: ${{ props.grossPay }}</h4>
+  </div>
+
+  <div class="month-content">
+    <div *ngFor="let period of props.payDates">
+      <pc-payperiod-display [props]="period"></pc-payperiod-display>
+    </div>
+  </div>
+</div>
+<hr />

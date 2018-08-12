@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+// override disabled material styles
+.mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline {
+    background-image: none;
+    background-color: rgba(0,0,0,.42);
+    border-bottom: 1px solid rgba(0,0,0,.42);
+}
+
+.mat-input-element:disabled {
+    color: #000;
+}

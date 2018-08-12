@@ -1,0 +1,7 @@
+<h5>{{ props.date }}</h5>
+
+<ul>
+  <li *ngFor="let bill of props.bills">
+    {{ bill.name }} - ${{ bill.cost }} - {{ bill.due }}
+  </li>
+</ul>

@@ -1,0 +1,47 @@
+
+.setup-wizard {
+    max-width: 900px;
+    margin: 60px auto;
+
+    mat-card-title {
+        font-size: 1.8em;
+    }
+
+    .form {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 40px;
+        padding-left: 10px;
+
+        .form-col {
+            position: relative;
+            flex-basis: 35%;
+            flex-grow: 1;
+        }
+
+        .form-col + .form-col {
+            flex-basis: 65%;
+        }
+
+        .actions {
+            flex-basis: 100%;
+            flex-grow: 1;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        h3 + p {
+            margin-top: 2px;
+            font-size: 14px;
+            color: rgba(0,0,0,.54);
+        }
+    }
+
+    .bill-listings {
+        margin-top: 10px;
+        max-height: 325px;
+        overflow-y: auto;
+    }
+}
