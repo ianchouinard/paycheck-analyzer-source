@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { MonthDisplayComponent } from './components/month-display/month-display.component';
 import { PayperiodDisplayComponent } from './components/payperiod-display/payperiod-display.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { PaychecksChartComponent } from './components/paychecks-chart/paychecks-chart.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -21,6 +22,11 @@ const dashboardRoutes: Routes = [
     PipesModule,
     MaterialModule
   ],
-  declarations: [PayOverviewComponent, MonthDisplayComponent, PayperiodDisplayComponent]
+  declarations: [
+    PayOverviewComponent,
+    MonthDisplayComponent,
+    PayperiodDisplayComponent,
+    PaychecksChartComponent
+  ]
 })
 export class DashboardModule { }

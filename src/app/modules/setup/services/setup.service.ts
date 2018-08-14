@@ -116,6 +116,7 @@ export class SetupService {
     for (let bill of this.bills) {
       billDate = new Date(bill.due);
       formattedBillDate = new Date(`${payMonth + 1}/${billDate.getDate()}/${payYear}`);
+      
       if (formattedBillDate >= payDate && formattedBillDate < endOfPeriod) {
         output.bills.push(bill);
       }

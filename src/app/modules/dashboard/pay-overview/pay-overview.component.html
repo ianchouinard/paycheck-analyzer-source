@@ -1,4 +1,9 @@
 <div class="pay-overview">
+
+  <h2 class="chart-headline">Bills Spread</h2>
+  <pc-paychecks-chart [props]="payMonths"></pc-paychecks-chart>
+
+  <h2 class="details-headline">Paychecks Details</h2>
   <section class="paycheck-grid">
     <div class="grid-item" *ngFor="let month of payMonths">
       <pc-month-display [props]="month"></pc-month-display>

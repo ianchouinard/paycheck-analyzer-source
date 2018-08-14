@@ -1,7 +1,24 @@
-<h5>{{ props.date }}</h5>
+<div class="pay-period">
+    <h5>{{ props.date | date }}</h5>
 
-<ul>
-  <li *ngFor="let bill of props.bills">
-    {{ bill.name }} - ${{ bill.cost }} - {{ bill.due }}
-  </li>
-</ul>
+    <table *ngIf="props.bills && props.bills.length">
+      <thead>
+        <tr>
+          <th>Bill name</th>
+          <th>Cost</th>
+          <th>Occurs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bill of props.bills">
+          <td>{{ bill.name }}</td>
+          <td><sup>$</sup>{{ bill.cost }}</td>
+          <td>{{ bill.due }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="no-bills" *ngIf="!props.bills || !props.bills.length">
+      No bills during this pay period
+    </p>
+</div>

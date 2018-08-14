@@ -17,6 +17,7 @@ export class MonthPipe implements PipeTransform {
       'August',
       'September',
       'October',
+      'November',
       'December'
     ];
 

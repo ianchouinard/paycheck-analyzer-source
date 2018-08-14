@@ -15,7 +15,7 @@ export class PayOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.payMonths = this.dataStore.getDummyData();
+    this.payMonths = this.dataStore.getData();
   }
 
 }

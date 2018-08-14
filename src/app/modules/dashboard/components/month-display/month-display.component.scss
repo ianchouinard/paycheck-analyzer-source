@@ -1,0 +1,36 @@
+
+.month-display {
+
+    .month-header {
+        background: #eee;
+        border-left: 5px solid #673ab7;
+        padding: 15px;
+
+        h3 {
+            font-weight: 700;
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        h4 {
+            font-size: 16px;
+
+            b {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .month-content {
+        padding: 20px;
+
+        h4 {
+            font-weight: 700;
+            font-size: 19px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    }
+
+}

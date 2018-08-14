@@ -7,8 +7,17 @@ import { payMonth } from '../modules/setup/models/payMonth.model';
 export class DatastoreService {
 
   public dummyData: Array<payMonth> = [];
+  public data: Array<payMonth> = [];
 
   constructor() { }
+
+  setData(data: Array<payMonth>): void {
+    this.data = data;
+  }
+
+  getData(): Array<payMonth> {
+    return this.data;
+  }
 
   getDummyData() {
     const dummyData: any = [
@@ -25,6 +34,11 @@ export class DatastoreService {
                 name: 'Student Loans',
                 cost: 300,
                 due: '2018-08-08T04:00:00.000Z'
+              },
+              {
+                name: 'Rat Food',
+                cost: 1100,
+                due: '2018-08-08T04:00:00.000Z'
               }
             ],
             date: '2018-08-02T04:00:00.000Z'
@@ -34,6 +48,26 @@ export class DatastoreService {
               {
                 name: 'Car',
                 cost: 390,
+                due: '2018-08-22T04:00:00.000Z'
+              },
+              {
+                name: 'Thing1',
+                cost: 520,
+                due: '2018-08-22T04:00:00.000Z'
+              },
+              {
+                name: 'Thing2',
+                cost: 320,
+                due: '2018-08-22T04:00:00.000Z'
+              },
+              {
+                name: 'Thing3',
+                cost: 410,
+                due: '2018-08-22T04:00:00.000Z'
+              },
+              {
+                name: 'Thing4',
+                cost: 375,
                 due: '2018-08-22T04:00:00.000Z'
               }
             ],

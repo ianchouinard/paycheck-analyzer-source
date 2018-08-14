@@ -1,10 +1,31 @@
 
 .pay-overview {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
+    h2 {
+        padding: 20px 30px;
+        font-size: 24px;
+        font-weight: 700;
+        border-left: 10px solid #673ab7;
+    }
+    h2.chart-headline {
+        background: #282828;
+        color: #fff;
+    }
+    h2.details-headline {
+        background: #eee;
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+    }
+}
 
-    mat-grid-tile {
-        background: #f2f2f2;
+.paycheck-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+
+    .grid-item {
+        flex-grow: 1;
+        flex-basis: calc(33.33% - 20px);
+        margin: 10px;
+        background: #fff;
+        box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.15);
     }
 }
