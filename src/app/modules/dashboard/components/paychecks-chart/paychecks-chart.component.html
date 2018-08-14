@@ -1,0 +1,32 @@
+
+<section class="paychecks-chart">
+  <div class="inner">
+
+    <div class="month" *ngFor="let month of props">
+      <div class="month-name">
+        {{ month.month | month }}
+      </div>
+      <div class="check" *ngFor="let check of month.payDates">
+        <div class="bar-box">
+          <div class="pay-bar" [style.border-bottom]="'1px solid ' + barColor(check.bills, 2200)">
+            <span><sup>$</sup>2200</span>
+          </div>
+          <div class="bills-box">
+            <div class="bill" *ngFor="let bill of check.bills" [style.height]="checkHeight(bill.cost, 2200) + '%'">
+              <span class="bill-content">
+                  {{ bill.name }}
+                  <span>${{ bill.cost }}</span>
+              </span>
+            </div>
+
+            <div class="no-bills" *ngIf="!check.bills || !check.bills.length">
+              No bills this pay period
+            </div>
+          </div>
+        </div>
+        <span>{{ check.date | date }}</span>
+      </div>
+    </div>
+
+  </div>
+</section>
