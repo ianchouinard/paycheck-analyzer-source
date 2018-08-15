@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatastoreService } from './services/datastore.service';
 
 @Component({
   selector: 'pc-root',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {}
+  constructor(private dataStore: DatastoreService) {}
+
+  showActions(): boolean {
+    return (this.dataStore.data && this.dataStore.data.length > 0);
+  }
 
 }

@@ -13,7 +13,7 @@
         <tr *ngFor="let bill of props.bills">
           <td>{{ bill.name }}</td>
           <td><sup>$</sup>{{ bill.cost }}</td>
-          <td>{{ bill.due }}</td>
+          <td>{{ dateMonth(props.date) }}/{{ dateDay(bill.due) }}</td>
         </tr>
       </tbody>
     </table>

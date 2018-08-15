@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatNativeDateModule } from '@angular/material';
+import { MatToolbarModule, MatNativeDateModule, MatButtonModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +20,8 @@ import { DatastoreService } from './services/datastore.service';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [
     DatastoreService

@@ -9,16 +9,12 @@
   <div class="form">
       
     <section class="form-col">
-      <h3>Basic Info</h3>
-      <pc-setup-form [model]="settings"></pc-setup-form>
-      <div class="actions">
-          <button mat-raised-button color="accent" (click)="submitForm()">Submit</button>
-      </div>
+      <pc-setup-form [model]="settings" (formSubmit)="submitForm()"></pc-setup-form>
     </section>
 
     <section class="form-col">
       <h3>Monthly Bills</h3>
-      <p>Add a re-occuring bill</p>
+      <p>Add re-occuring bills</p>
       <pc-bill-info [type]="'add'" (billUpdate)="newBillEvent($event)"></pc-bill-info>
       <mat-divider></mat-divider>
       <div class="bill-listings">

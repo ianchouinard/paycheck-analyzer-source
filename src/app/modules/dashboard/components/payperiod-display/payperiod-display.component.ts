@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { payPeriod } from '../../../setup/models/payPeriod.model';
 
 @Component({
@@ -6,13 +6,20 @@ import { payPeriod } from '../../../setup/models/payPeriod.model';
   templateUrl: './payperiod-display.component.html',
   styleUrls: ['./payperiod-display.component.scss']
 })
-export class PayperiodDisplayComponent implements OnInit {
+export class PayperiodDisplayComponent {
 
   @Input() props: payPeriod;
 
   constructor() { }
 
-  ngOnInit() {
+  dateMonth(due) {
+    const date = new Date(due);
+    return date.getMonth() + 1;
+  }
+
+  dateDay(due) {
+    const date = new Date(due);
+    return date.getDate();
   }
 
 }

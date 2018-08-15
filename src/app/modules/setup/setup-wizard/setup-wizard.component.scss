@@ -15,12 +15,14 @@
 
         .form-col {
             position: relative;
-            flex-basis: 35%;
+            padding-right: 20px;
+            flex-basis: calc(35% - 20px);
             flex-grow: 1;
         }
 
         .form-col + .form-col {
             flex-basis: 65%;
+            padding-right: 0;
         }
 
         .actions {
@@ -30,10 +32,12 @@
 
         h3 {
             margin: 0;
+            padding-bottom: 5px;
         }
 
         h3 + p {
             margin-top: 2px;
+            padding-bottom: 20px;
             font-size: 14px;
             color: rgba(0,0,0,.54);
         }

@@ -1,4 +1,9 @@
 
-.example-card {
-    max-width: 500px;
+.actions {
+    position: absolute;
+    right: 20px;
+
+    a {
+        margin-left: 10px;
+    }
 }

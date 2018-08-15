@@ -1,12 +1,33 @@
+.setup-form {
+    padding: 20px;
+    background: #f4f4f4;
+
+    h3 {
+        padding-bottom: 20px;
+    }
+}
+
 .field {
     display: block;
+    margin-bottom: 20px;
 
     p {
         font-size: .775em;
         color: rgba(0,0,0,.54);
+        padding-bottom: 5px;
+    }
+
+    .err {
+        color: #cf0e0e;
+        transform: translateY(-14px);
+        font-size: 14px;
     }
 }
 
 .field + .field {
     margin-bottom: 40px;
+}
+
+.field + .field + .field {
+    margin-bottom: 10px;
 }

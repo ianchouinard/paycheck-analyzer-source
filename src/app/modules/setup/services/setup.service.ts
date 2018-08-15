@@ -19,6 +19,7 @@ export class SetupService {
     payFrequency: string,
     amountPerPaycheck: number,
     bills: Array<bill> ): void {
+      this.months = [];
       this.lastPayCheck = lastPayCheck;
       this.payFrequency = payFrequency;
       this.amountPerPaycheck = amountPerPaycheck;

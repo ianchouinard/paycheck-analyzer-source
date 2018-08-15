@@ -1,21 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'pc-paychecks-chart',
   templateUrl: './paychecks-chart.component.html',
   styleUrls: ['./paychecks-chart.component.scss']
 })
-export class PaychecksChartComponent implements OnInit {
+export class PaychecksChartComponent {
 
   @Input() props: any;
 
   constructor() { }
 
-  checkHeight(cost: number, pay: number) {
+  checkHeight(cost: number, pay: number): number {
     return (cost / pay) * 100;
   }
 
-  barColor(bills, gross) {
+  checkAmount(gross: number, amountOfChecks): number {
+    return gross / amountOfChecks;
+  }
+
+  barColor(bills, gross): string {
     let output;
     let cost = 0;
 
@@ -36,9 +40,6 @@ export class PaychecksChartComponent implements OnInit {
     }
 
     return output;
-  }
-
-  ngOnInit() {
   }
 
 }

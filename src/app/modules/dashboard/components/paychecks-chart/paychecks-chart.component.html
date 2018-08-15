@@ -8,11 +8,13 @@
       </div>
       <div class="check" *ngFor="let check of month.payDates">
         <div class="bar-box">
-          <div class="pay-bar" [style.border-bottom]="'1px solid ' + barColor(check.bills, 2200)">
-            <span><sup>$</sup>2200</span>
+          <div class="pay-bar" 
+          [style.border-bottom]="'1px solid ' + barColor(check.bills, checkAmount(month.grossPay, month.checkQuantity))">
+            <span><sup>$</sup>{{ checkAmount(month.grossPay, month.checkQuantity) }}</span>
           </div>
           <div class="bills-box">
-            <div class="bill" *ngFor="let bill of check.bills" [style.height]="checkHeight(bill.cost, 2200) + '%'">
+            <div class="bill" *ngFor="let bill of check.bills" 
+              [style.height]="checkHeight(bill.cost, checkAmount(month.grossPay, month.checkQuantity)) + '%'">
               <span class="bill-content">
                   {{ bill.name }}
                   <span>${{ bill.cost }}</span>

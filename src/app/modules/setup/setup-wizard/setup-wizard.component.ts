@@ -26,16 +26,15 @@ export class SetupWizardComponent implements OnInit {
     this.settings.expenses = [];
   }
 
-  newBillEvent(bill) {
+  newBillEvent(bill): void {
     this.bills.push(bill);
   }
 
-  removeBillEvent(index) {
+  removeBillEvent(index): void {
     this.bills.splice(index, 1);
   }
 
   submitForm(): void {
-    // this.validate();
     const freqency = (this.settings.biWeekly ? 'biweekly' : 'weekly');
 
     this.setupService.setInfo(
@@ -48,20 +47,53 @@ export class SetupWizardComponent implements OnInit {
     this.setupService.calculateInfo();
     const data = this.setupService.getInfo();
     this.dataStore.setData(data);
+
+    this.dataStore.settings = this.settings;
+    this.dataStore.billsData = this.bills;
+    // localStorage.setItem('paychecksdata', JSON.stringify(data));
+    // localStorage.setItem('formdata', JSON.stringify(this.settings));
+    // localStorage.setItem('bills', JSON.stringify(this.bills));
+
     this.router.navigateByUrl('/dashboard');
-    console.log(data);
   }
 
-  /*
-  validate() {
+  checkStorageForData(): void {
+    const payChecksData = localStorage.getItem('paychecksdata');
+    const formData = localStorage.getItem('formdata');
+    const billsData = localStorage.getItem('bills');
 
+    if (payChecksData) {
+      this.dataStore.data = JSON.parse(payChecksData);
+    }
+
+    if (formData) {
+      this.settings = JSON.parse(formData);
+    }
+
+    if (billsData) {
+      this.bills = JSON.parse(billsData);
+    }
   }
-  */
+
+  checkStoreForData(): void {
+    const formData = this.dataStore.settings;
+    const billsData = this.dataStore.billsData;
+
+    if (formData) {
+      this.settings = formData;
+    }
+
+    if (billsData) {
+      this.bills = billsData;
+    }
+  }
+
   ngOnInit() {
-    // this.setupService.setInfo(new Date(), 'biweekly', 2200);
-    // this.setupService.calculateInfo();
-    // const data = this.setupService.getInfo();
-    // console.log(data);
+    if (this.dataStore.data && this.dataStore.data.length > 0) {
+      this.checkStoreForData();
+    } else {
+      this.checkStorageForData();
+    }
   }
 
 }

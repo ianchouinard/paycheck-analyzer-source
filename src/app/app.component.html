@@ -1,5 +1,9 @@
 <mat-toolbar>
   <h1>Paycheck Helper</h1>
+  <div class="actions" *ngIf="showActions()">
+    <a mat-raised-button routerLink="/dashboard">Dashboard</a>
+    <a mat-raised-button routerLink=".">Setup</a>
+  </div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
