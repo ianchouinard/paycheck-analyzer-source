@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { payMonth } from '../../../setup/models/payMonth.model';
 
 @Component({
   selector: 'pc-paychecks-chart',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PaychecksChartComponent {
 
-  @Input() props: any;
+  @Input() props: Array<payMonth>;
 
   constructor() { }
 

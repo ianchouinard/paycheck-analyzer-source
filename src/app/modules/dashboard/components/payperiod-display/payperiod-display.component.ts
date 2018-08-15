@@ -12,12 +12,12 @@ export class PayperiodDisplayComponent {
 
   constructor() { }
 
-  dateMonth(due) {
+  dateMonth(due): number {
     const date = new Date(due);
     return date.getMonth() + 1;
   }
 
-  dateDay(due) {
+  dateDay(due): number {
     const date = new Date(due);
     return date.getDate();
   }

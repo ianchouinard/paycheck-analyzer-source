@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MonthDisplayComponent } from './month-display.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PipesModule } from '../../../pipes/pipes.module';
 
 describe('MonthDisplayComponent', () => {
   let component: MonthDisplayComponent;
@@ -8,7 +10,9 @@ describe('MonthDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonthDisplayComponent ]
+      imports: [PipesModule],
+      declarations: [ MonthDisplayComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

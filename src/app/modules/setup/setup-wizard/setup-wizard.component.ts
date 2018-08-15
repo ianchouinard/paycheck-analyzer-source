@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { SetupService } from '../services/setup.service';
 import { setupForm } from '../models/setupForm.model';
 import { bill } from '../models/bill.model';

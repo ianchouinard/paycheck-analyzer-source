@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaychecksChartComponent } from './paychecks-chart.component';
+import { PipesModule } from '../../../pipes/pipes.module';
 
 describe('PaychecksChartComponent', () => {
   let component: PaychecksChartComponent;
@@ -8,6 +9,7 @@ describe('PaychecksChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+			imports: [PipesModule],
       declarations: [ PaychecksChartComponent ]
     })
     .compileComponents();

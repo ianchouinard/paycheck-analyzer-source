@@ -1,4 +1,4 @@
-<section class="bill-info" [ngClass]="{'edit': type == 'edit'}">
+<section class="bill-info" [ngClass]="{'edit': type == 'edit'}" *ngIf="bill != null">
   <div class="field">
     <mat-form-field>
       <input matInput placeholder="Bill Name" type="string" [(ngModel)]="bill.name">

@@ -17,9 +17,6 @@ import { DatastoreService } from './services/datastore.service';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatNativeDateModule,
     MatToolbarModule,
     MatButtonModule
   ],

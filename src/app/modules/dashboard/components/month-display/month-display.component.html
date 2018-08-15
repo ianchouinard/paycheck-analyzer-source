@@ -1,5 +1,5 @@
 
-<div class="month-display">
+<div class="month-display" *ngIf="props != null">
   <div class="month-header">
     <h3>{{ props.month | month }}</h3>
     <h4>
@@ -8,7 +8,7 @@
     </h4>
   </div>
 
-  <div class="month-content">
+  <div class="month-content" *ngIf="props.payDates != null">
     <h4>Pay Periods</h4>
     <div *ngFor="let period of props.payDates">
       <pc-payperiod-display [props]="period"></pc-payperiod-display>

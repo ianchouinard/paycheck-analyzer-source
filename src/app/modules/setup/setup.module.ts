@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SetupFormComponent } from './components/setup-form/setup-form.component';
 import { BillInfoComponent } from './components/bill-info/bill-info.component';
+import { MatNativeDateModule } from '@angular/material';
 
 const setupRoutes: Routes = [
   {
@@ -19,8 +20,9 @@ const setupRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(setupRoutes),
-    MaterialModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
+    MaterialModule
   ],
   providers: [SetupService],
   declarations: [SetupWizardComponent, SetupFormComponent, BillInfoComponent]
