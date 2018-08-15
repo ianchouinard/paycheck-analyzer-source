@@ -4,6 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 const appRoutes: Routes = [
     {
         path: "",
+        loadChildren: "./modules/splash/splash.module#SplashModule"
+    },
+    {
+        path: "setup",
         loadChildren: "./modules/setup/setup.module#SetupModule"
     },
     {
