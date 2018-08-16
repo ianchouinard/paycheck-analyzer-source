@@ -50,9 +50,9 @@ export class SetupWizardComponent implements OnInit {
 
     this.dataStore.settings = this.settings;
     this.dataStore.billsData = this.bills;
-    // localStorage.setItem('paychecksdata', JSON.stringify(data));
-    // localStorage.setItem('formdata', JSON.stringify(this.settings));
-    // localStorage.setItem('bills', JSON.stringify(this.bills));
+    localStorage.setItem('paychecksdata', JSON.stringify(data));
+    localStorage.setItem('formdata', JSON.stringify(this.settings));
+    localStorage.setItem('bills', JSON.stringify(this.bills));
 
     this.router.navigateByUrl('/dashboard');
   }
