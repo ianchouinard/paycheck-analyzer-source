@@ -1,8 +1,15 @@
 <mat-toolbar>
   <h1>Paycheck Analyzer</h1>
-  <div class="actions" *ngIf="showActions()">
-    <a mat-raised-button routerLink="/dashboard">Dashboard</a>
-    <a mat-raised-button routerLink=".">Setup</a>
+  <div class="actions">
+    <a mat-button href="https://github.com/ianchouinard/paycheck-analyzer-source" target="_blank" title="View source code on Github">
+      Source
+    </a>
+    <a mat-raised-button routerLink="/dashboard" *ngIf="showActions()">
+      Dashboard
+    </a>
+    <a mat-raised-button routerLink="." *ngIf="showActions()">
+      Setup
+    </a>
   </div>
 </mat-toolbar>
 

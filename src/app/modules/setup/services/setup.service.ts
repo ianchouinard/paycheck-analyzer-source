@@ -12,11 +12,6 @@ export class SetupService {
   private months: Array<payMonth> = [];
   private bills: Array<bill> = [];
 
-  // Used to keep track of any bills that happen
-  // before the first recored pay date
-  private billTracker: Array<bill> = [];
-  private billTrackerIndex: number = 0;
-
   constructor() { }
 
   public setInfo(
@@ -32,7 +27,6 @@ export class SetupService {
   }
 
   public getInfo(): Array<payMonth> {
-    console.log(this.months);
     return this.months;
   }
 
