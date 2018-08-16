@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { payMonth } from '../../../setup/models/payMonth.model';
+import { bill } from '../../../setup/models/bill.model';
 
 @Component({
   selector: 'pc-paychecks-chart',
@@ -18,6 +19,13 @@ export class PaychecksChartComponent {
 
   checkAmount(gross: number, amountOfChecks): number {
     return gross / amountOfChecks;
+  }
+
+  shouldShowLabel(bill: bill, month: payMonth): boolean {
+    const check = this.checkAmount(month.grossPay, month.checkQuantity);
+    const height = this.checkHeight(bill.cost, check);
+
+    return height >= 10;
   }
 
   barColor(bills, gross): string {

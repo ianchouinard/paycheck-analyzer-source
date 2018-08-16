@@ -4,10 +4,6 @@ import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 const appRoutes: Routes = [
     {
         path: "",
-        loadChildren: "./modules/splash/splash.module#SplashModule"
-    },
-    {
-        path: "setup",
         loadChildren: "./modules/setup/setup.module#SetupModule"
     },
     {
@@ -19,8 +15,7 @@ const appRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(appRoutes, {
-            enableTracing: false,
-            preloadingStrategy: PreloadAllModules
+            enableTracing: false
         })
     ],
     exports: [RouterModule]

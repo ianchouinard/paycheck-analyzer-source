@@ -15,7 +15,7 @@
           <div class="bills-box">
             <div class="bill" *ngFor="let bill of check.bills" 
               [style.height]="checkHeight(bill.cost, checkAmount(month.grossPay, month.checkQuantity)) + '%'">
-              <span class="bill-content">
+              <span class="bill-content" *ngIf="shouldShowLabel(bill, month)">
                   {{ bill.name }}
                   <span>${{ bill.cost }}</span>
               </span>
