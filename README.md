@@ -7,7 +7,7 @@ source code for the small tool I made for myself to visualize paychecks and bill
 Just enter in your last pay date, pat frequency, net pay, and some re-occuring bills and the app will calculate when all of your paychecks occur over the next 12 months, and list which bills happen in each pay period.
 
 ## Dev
-App is build with angular 6, and has no backend. 
+App is built with angular 6, and has no backend. 
 
 The majority of the logic is in [the Setup Service](./src/app/modules/setup/services/setup.service.ts)
 
