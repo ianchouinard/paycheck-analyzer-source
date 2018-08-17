@@ -32,7 +32,8 @@ export class PaychecksChartComponent {
     let output;
     let cost = 0;
 
-    for (let bill of bills) {
+    let bill;
+    for (bill of bills) {
       cost += bill.cost;
     }
 
