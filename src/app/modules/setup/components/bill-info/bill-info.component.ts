@@ -16,7 +16,7 @@ export class BillInfoComponent implements OnInit {
   public nameError: boolean;
   public costError: boolean;
   public dateError: boolean;
- 
+
   constructor() { }
 
   addNewBill(): void {

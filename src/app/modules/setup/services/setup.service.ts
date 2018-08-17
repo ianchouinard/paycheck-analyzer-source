@@ -34,11 +34,11 @@ export class SetupService {
     let daysPerCheck: number;
 
     switch (this.payFrequency) {
-      case "weekly":
+      case 'weekly':
         daysPerCheck = 7;
         break;
 
-      case "biweekly":
+      case 'biweekly':
         daysPerCheck = 14;
         break;
 
@@ -106,25 +106,27 @@ export class SetupService {
     const output = <payPeriod>{};
     output.bills = [];
     output.date = payDate;
-    
-    let calendar = new Date(payDate);
+
+    const calendar = new Date(payDate);
     calendar.setDate(calendar.getDate() + period);
-    let endOfPeriod = calendar;
+    const endOfPeriod = calendar;
 
     const payMonth = payDate.getMonth();
     const payYear = payDate.getFullYear();
 
     // Set times to 0 to not interfere with logic
-    payDate.setHours(0,0,0,0);
-    endOfPeriod.setHours(0,0,0,0);
+    payDate.setHours(0, 0, 0, 0);
+    endOfPeriod.setHours(0, 0, 0, 0);
 
     let billDate;
     let formattedBillDate;
     let nextMonth;
-    for (let bill of this.bills) {
+
+    let bill;
+    for (bill of this.bills) {
       billDate = new Date(bill.due);
       formattedBillDate = new Date(`${payMonth + 1}/${billDate.getDate()}/${payYear}`);
-      formattedBillDate.setHours(0,0,0,0);
+      formattedBillDate.setHours(0, 0, 0, 0);
 
       // The bill due date falls in this payperiod
       if (formattedBillDate >= payDate && formattedBillDate < endOfPeriod) {
@@ -132,7 +134,7 @@ export class SetupService {
       }
 
       // Because the pay period can carry over to the next month
-      // We need to do this additonal check to see if the bill is valid.
+      // We need to do this additional check to see if the bill is valid.
       // To do this we need to check if the end of the pay period is in next month.
       // Then check if the bill due date falls before it.
       nextMonth = payMonth + 1;
