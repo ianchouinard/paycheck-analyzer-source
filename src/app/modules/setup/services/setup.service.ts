@@ -42,6 +42,18 @@ export class SetupService {
         daysPerCheck = 14;
         break;
 
+      case 'triweekly':
+        daysPerCheck = 21;
+        break;
+
+      case 'quadweekly':
+        daysPerCheck = 28;
+        break;
+
+      case 'monthly':
+        daysPerCheck = 0;
+        break;
+
       default:
         daysPerCheck = 7;
     }
@@ -60,6 +72,14 @@ export class SetupService {
   private figureMonth(lastCheck: Date, payPeriod: number, pay: number): payMonth {
     const output = <payMonth>{};
     let trackedDate = lastCheck;
+
+    // payPeriod is monthly, set it to the number
+    // of days in this month.
+    if (payPeriod < 1) {
+      payPeriod = new Date(
+        lastCheck.getFullYear(), lastCheck.getMonth(), 0
+      ).getDate();
+    }
 
     output.payDates = [this.getPayPeriodInfo(lastCheck, payPeriod)];
     output.month = lastCheck.getMonth();

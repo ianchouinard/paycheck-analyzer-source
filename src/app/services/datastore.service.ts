@@ -22,4 +22,57 @@ export class DatastoreService {
     return this.data;
   }
 
+  validateLocalStorageFormData(response: any): boolean {
+    const res: setupForm = response;
+
+    if (!res.lastPayDate) {
+      return false;
+    }
+
+    if (!res.grossPayPerCheck) {
+      return false;
+    }
+
+    if (!res.frequencies) {
+      return false;
+    }
+
+    if (!res.frequency) {
+      return  false;
+    }
+
+    return true;
+  }
+
+  validateLocalStorageBillData(response: any): boolean {
+    const res: Array<bill> = response;
+    let output = true;
+
+    res.forEach((bill) => {
+      if (!bill.cost || !bill.due || !bill.name) {
+        output = false;
+      }
+    });
+
+    return output;
+  }
+
+  validateLocalStorageCheckData(response: any): boolean {
+    const res: Array<payMonth> = response;
+    let output = true;
+
+    res.forEach((month) => {
+      if (
+        !month.checkQuantity
+        || !month.firstCheckDateInNextMonth
+        || !month.grossPay
+        || !month.payDates
+      ) {
+        output = false;
+      }
+    });
+
+    return output;
+  }
+
 }

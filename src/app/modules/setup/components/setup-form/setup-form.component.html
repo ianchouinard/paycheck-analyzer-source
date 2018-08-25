@@ -9,22 +9,23 @@
     </mat-form-field>
     <div class="err" *ngIf="dateError">Date must be valid</div>
   </div>
-  
+
   <div class="field">
-    <mat-radio-group [(ngModel)]="model.biWeekly">
-      <p>How often are you paid?</p>
-      <mat-radio-button value="true" [value]="false">Weekly</mat-radio-button> &nbsp; &nbsp;
-      <mat-radio-button value="false" [value]="true">Biweekly</mat-radio-button>
-    </mat-radio-group>
+    <mat-select placeholder="How often are you paid?" [(ngModel)]="model.frequency" *ngIf="model && model.frequencies">
+      <mat-option *ngFor="let frequency of model.frequencies" [value]="frequency.value">
+        {{ frequency.title }}
+      </mat-option>
+    </mat-select>
+    <div class="err select-error" *ngIf="freqError">A pay frequency must be selected</div>
   </div>
-  
+
   <div class="field">
     <mat-form-field>
       <input matInput placeholder="Net income per check" type="number" [(ngModel)]="model.grossPayPerCheck">
     </mat-form-field>
     <div class="err" *ngIf="payError">Income must be a number</div>
   </div>
-  
+
   <div class="actions">
     <button mat-raised-button color="accent" (click)="submitForm()">Submit</button>
   </div>

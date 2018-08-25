@@ -24,6 +24,28 @@ export class SetupWizardComponent implements OnInit {
     this.settings.lastPayDate = new Date();
     this.settings.grossPayPerCheck = 50;
     this.settings.expenses = [];
+    this.settings.frequencies = [
+      {
+        title: 'Weekly',
+        value: 'weekly'
+      },
+      {
+        title: 'Every two weeks',
+        value: 'biweekly'
+      },
+      {
+        title: 'Every three weeks',
+        value: 'triweekly'
+      },
+      {
+        title: 'Every four weeks',
+        value: 'quadweekly'
+      },
+      {
+        title: 'Monthly',
+        value: 'monthly'
+      }
+    ];
   }
 
   newBillEvent(bill): void {
@@ -35,11 +57,9 @@ export class SetupWizardComponent implements OnInit {
   }
 
   submitForm(): void {
-    const freqency = (this.settings.biWeekly ? 'biweekly' : 'weekly');
-
     this.setupService.setInfo(
       this.settings.lastPayDate,
-      freqency,
+      this.settings.frequency,
       this.settings.grossPayPerCheck,
       this.bills
     );
@@ -50,6 +70,7 @@ export class SetupWizardComponent implements OnInit {
 
     this.dataStore.settings = this.settings;
     this.dataStore.billsData = this.bills;
+
     localStorage.setItem('paychecksdata', JSON.stringify(data));
     localStorage.setItem('formdata', JSON.stringify(this.settings));
     localStorage.setItem('bills', JSON.stringify(this.bills));
@@ -63,15 +84,30 @@ export class SetupWizardComponent implements OnInit {
     const billsData = localStorage.getItem('bills');
 
     if (payChecksData) {
-      this.dataStore.data = JSON.parse(payChecksData);
+      const checksResponse = JSON.parse(payChecksData);
+      const checksDataValid = this.dataStore.validateLocalStorageCheckData(checksResponse);
+
+      if (checksDataValid) {
+        this.dataStore.data = checksResponse;
+      }
     }
 
     if (formData) {
-      this.settings = JSON.parse(formData);
+      const formResponse = JSON.parse(formData);
+      const formDataValid = this.dataStore.validateLocalStorageFormData(formResponse);
+
+      if (formDataValid) {
+        this.settings = formResponse;
+      }
     }
 
     if (billsData) {
-      this.bills = JSON.parse(billsData);
+      const billsResponse = JSON.parse(billsData);
+      const billsDataValid = this.dataStore.validateLocalStorageBillData(billsResponse);
+
+      if (billsDataValid) {
+        this.bills = billsResponse;
+      }
     }
   }
 

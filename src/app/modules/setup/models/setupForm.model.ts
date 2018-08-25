@@ -1,8 +1,9 @@
 import { expense } from './expense.model';
 
 export interface setupForm {
-    lastPayDate: Date,
+    lastPayDate: Date;
     grossPayPerCheck: number;
-    biWeekly: boolean;
     expenses: Array<expense>;
+    frequencies: Array<any>;
+    frequency: string;
 }

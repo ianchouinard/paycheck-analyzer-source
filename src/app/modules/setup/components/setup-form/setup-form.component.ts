@@ -12,6 +12,7 @@ export class SetupFormComponent {
   @Output() formSubmit: EventEmitter<void> = new EventEmitter<void>();
   public dateError: boolean;
   public payError: boolean;
+  public freqError: boolean;
 
   constructor() {}
 
@@ -28,10 +29,22 @@ export class SetupFormComponent {
       this.dateError = true;
     }
 
+    if (!this.model.frequency || this.model.frequency === '') {
+      output = false;
+      this.freqError = true;
+    }
+
     return output;
   }
 
+  clearValidators(): void {
+    this.dateError = false;
+    this.payError = false;
+    this.freqError = false;
+  }
+
   submitForm(): void {
+    this.clearValidators();
     const valid = this.validate();
 
     if (valid) {

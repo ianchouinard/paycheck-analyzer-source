@@ -21,6 +21,10 @@
         color: #cf0e0e;
         transform: translateY(-14px);
         font-size: 14px;
+
+        &.select-error {
+          transform: translateY(5px);
+        }
     }
 }
 
