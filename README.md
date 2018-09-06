@@ -4,7 +4,7 @@ source code for the small tool I made for myself to visualize paychecks and bill
 [View Live App](https://paycheck-analyzer.herokuapp.com/)
 
 ## What it does
-Just enter in your last pay date, pat frequency, net pay, and some re-occuring bills and the app will calculate when all of your paychecks occur over the next 12 months, and list which bills happen in each pay period.
+Just enter in your last pay date, pay frequency, net pay, and some re-occuring bills and the app will calculate when all of your paychecks occur over the next 12 months, and list which bills happen in each pay period.
 
 ## Dev
 App is built with angular 6, and has no backend. 
