@@ -70,6 +70,10 @@ export class SetupService {
   }
 
   private figureMonth(lastCheck: Date, payPeriod: number, pay: number): payMonth {
+    if (typeof lastCheck === 'string') {
+      lastCheck = new Date(lastCheck);
+    }
+
     const output = <payMonth>{};
     let trackedDate = lastCheck;
 
@@ -115,7 +119,6 @@ export class SetupService {
     }
 
     output.firstCheckDateInNextMonth = trackedDate;
-
     return output;
   }
 
@@ -123,6 +126,11 @@ export class SetupService {
    * Determines which bills fall within a given pay period
    */
   private getPayPeriodInfo(payDate: Date, period: number): payPeriod {
+
+    if (typeof payDate === 'string') {
+      payDate = new Date(payDate);
+    }
+
     const output = <payPeriod>{};
     output.bills = [];
     output.date = payDate;
@@ -151,6 +159,7 @@ export class SetupService {
       // The bill due date falls in this payperiod
       if (formattedBillDate >= payDate && formattedBillDate < endOfPeriod) {
         output.bills.push(bill);
+        continue;
       }
 
       // Because the pay period can carry over to the next month
@@ -162,6 +171,8 @@ export class SetupService {
         // If it's the end of the year, set the next month to dec;
         nextMonth = 0;
       }
+
+      formattedBillDate.setMonth(endOfPeriod.getMonth());
 
       if ((endOfPeriod.getMonth() == nextMonth) && (formattedBillDate < endOfPeriod)) {
         output.bills.push(bill);

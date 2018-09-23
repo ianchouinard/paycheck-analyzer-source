@@ -46,6 +46,12 @@ export class SetupWizardComponent implements OnInit {
         value: 'monthly'
       }
     ];
+
+    if (this.dataStore.data && this.dataStore.data.length > 0) {
+      this.checkStoreForData();
+    } else {
+      this.checkStorageForData();
+    }
   }
 
   newBillEvent(bill): void {
@@ -125,11 +131,11 @@ export class SetupWizardComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.dataStore.data && this.dataStore.data.length > 0) {
-      this.checkStoreForData();
-    } else {
-      this.checkStorageForData();
-    }
+    // if (this.dataStore.data && this.dataStore.data.length > 0) {
+    //   this.checkStoreForData();
+    // } else {
+    //   this.checkStorageForData();
+    // }
   }
 
 }
