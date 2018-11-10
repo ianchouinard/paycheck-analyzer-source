@@ -1,5 +1,5 @@
 <div class="pay-period" *ngIf="props != null">
-    <h5>{{ props.date | date }}</h5>
+    <h5>{{ props.date | date }} | {{ props.estimatedSavings }}</h5>
 
     <table *ngIf="props.bills && props.bills.length">
       <thead>

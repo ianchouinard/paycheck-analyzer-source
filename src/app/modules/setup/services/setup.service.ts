@@ -85,7 +85,7 @@ export class SetupService {
       ).getDate();
     }
 
-    output.payDates = [this.getPayPeriodInfo(lastCheck, payPeriod)];
+    output.payDates = [this.getPayPeriodInfo(lastCheck, payPeriod, pay)];
     output.month = lastCheck.getMonth();
     output.grossPay = pay;
     output.checkQuantity = 1;
@@ -101,7 +101,7 @@ export class SetupService {
       if (trackedDate.getMonth() == output.month) {
         output.grossPay += pay;
         output.checkQuantity += 1;
-        output.payDates.unshift(this.getPayPeriodInfo(trackedDate, payPeriod));
+        output.payDates.unshift(this.getPayPeriodInfo(trackedDate, payPeriod, pay));
       }
     }
 
@@ -114,7 +114,7 @@ export class SetupService {
       if (trackedDate.getMonth() == output.month) {
         output.grossPay += pay;
         output.checkQuantity += 1;
-        output.payDates.push(this.getPayPeriodInfo(trackedDate, payPeriod));
+        output.payDates.push(this.getPayPeriodInfo(trackedDate, payPeriod, pay));
       }
     }
 
@@ -125,7 +125,7 @@ export class SetupService {
   /**
    * Determines which bills fall within a given pay period
    */
-  private getPayPeriodInfo(payDate: Date, period: number): payPeriod {
+  private getPayPeriodInfo(payDate: Date, period: number, pay: number): payPeriod {
 
     if (typeof payDate === 'string') {
       payDate = new Date(payDate);
@@ -134,6 +134,8 @@ export class SetupService {
     const output = <payPeriod>{};
     output.bills = [];
     output.date = payDate;
+    output.totalBillCost = 0;
+    output.estimatedSavings = 0;
 
     const calendar = new Date(payDate);
     calendar.setDate(calendar.getDate() + period);
@@ -159,6 +161,7 @@ export class SetupService {
       // The bill due date falls in this payperiod
       if (formattedBillDate >= payDate && formattedBillDate < endOfPeriod) {
         output.bills.push(bill);
+        output.totalBillCost += bill.cost;
         continue;
       }
 
@@ -176,8 +179,11 @@ export class SetupService {
 
       if ((endOfPeriod.getMonth() == nextMonth) && (formattedBillDate < endOfPeriod)) {
         output.bills.push(bill);
+        output.totalBillCost += bill.cost;
       }
     }
+
+    output.estimatedSavings = pay - output.totalBillCost;
 
     return output;
   }
